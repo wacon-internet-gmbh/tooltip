@@ -1,0 +1,37 @@
+
+plugin.tx_tooltip_replace {
+    view {
+        templateRootPaths.0 = EXT:tooltip/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_tooltip.view.templateRootPath}
+        partialRootPaths.0 = EXT:tooltip/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_tooltip.view.partialRootPath}
+        layoutRootPaths.0 = EXT:tooltip/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_tooltip.view.layoutRootPath}
+    }
+    persistence {
+        storagePid = {$plugin.tx_tooltip.persistence.storagePid}
+        
+    }
+    features {
+        #skipDefaultArguments = 1
+        # if set to 1, the enable fields are ignored in BE context
+        ignoreAllEnableFieldsInBe = 0
+    }
+    mvc {
+        #callDefaultActionIfActionCantBeResolved = 1
+    }
+}
+
+
+[{$plugin.tx_tooltip.persistence.storagePid} > 0]
+
+page.20250314 = USER
+page.20250314 {
+  userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+  extensionName = Tooltip
+  pluginName = Replace
+  vendorName = Wacon
+}
+
+[END]
+

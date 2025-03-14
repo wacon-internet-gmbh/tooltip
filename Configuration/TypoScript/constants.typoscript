@@ -1,0 +1,16 @@
+plugin.tx_tooltip {
+    view {
+        # cat=plugin.tx_tooltip/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:tooltip/Resources/Private/Templates/
+        # cat=plugin.tx_tooltip/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:tooltip/Resources/Private/Partials/
+        # cat=plugin.tx_tooltip/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:tooltip/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_tooltip//a; type=string; label=Storage PID
+        storagePid =
+    }
+}
+
+

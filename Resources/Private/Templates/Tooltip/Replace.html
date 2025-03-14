@@ -1,0 +1,69 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+This template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        Secrets:
+          List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+  <f:asset.css identifier="wtooltip">
+    span.wtooltip {
+      position: relative;
+      text-decoration: underline dotted;
+    }
+    span.wtooltip:after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 150%;
+      left: 20%;
+      background: #dddddd;
+      padding: 5px 20px;
+      color: black;
+      -webkit-border-radius: 10px;
+      -moz-border-radius : 10px;
+      border-radius : 10px;
+      white-space: nowrap;
+      opacity: 0;
+      -webkit-transition: all 0.4s ease;
+      -moz-transition : all 0.4s ease;
+      transition : all 0.4s ease;
+    }
+
+    span.wtooltip:hover:after, span.wtooltip.active:after {
+      bottom: 100%;
+      opacity: 1;
+    }
+</f:asset.css>
+<script>
+  function wtactivate(element){
+    element.classList.toggle("active");
+
+  }
+ document.addEventListener('DOMContentLoaded', function () {
+  const lis = document.getElementsByTagName("li");
+  const ps = document.getElementsByTagName("p");
+  for (li of lis) {
+    tooltipreplace(li);
+  }
+  for (p of ps) {
+    tooltipreplace(p);
+  }
+  function tooltipreplace(li){
+  <f:for each="{tooltips}" as="tooltip">
+  li.innerHTML = li.innerHTML.replaceAll('{tooltip.tipid}', '<span class="wtooltip"  onclick="wtactivate(this)" data-tooltip="{tooltip.description}">{tooltip.tiptext}</span>');
+  </f:for>
+}
+
+
+});
+</script> 
+</f:section>
+</html>
