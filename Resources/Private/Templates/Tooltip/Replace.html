@@ -20,8 +20,10 @@ Otherwise your changes will be overwritten the next time you save the extension 
       text-decoration: underline dotted;
     }
     span.wtooltip:after {
-      content: attr(data-tooltip);
+      content: attr(title);
       position: absolute;
+      font-size:.9;
+      line-height:1.3;
       bottom: 150%;
       left: 20%;
       background: #dddddd;
@@ -30,22 +32,30 @@ Otherwise your changes will be overwritten the next time you save the extension 
       -webkit-border-radius: 10px;
       -moz-border-radius : 10px;
       border-radius : 10px;
-      white-space: nowrap;
       opacity: 0;
+      height:0;
       -webkit-transition: all 0.4s ease;
       -moz-transition : all 0.4s ease;
       transition : all 0.4s ease;
     }
 
-    span.wtooltip:hover:after, span.wtooltip.active:after {
+    span.wtooltip.active:after {
       bottom: 100%;
       opacity: 1;
+      height:auto;
     }
 </f:asset.css>
 <script>
   function wtactivate(element){
     element.classList.toggle("active");
 
+    var event = new MouseEvent('mouseenter', {
+    'view': window,
+    'bubbles': true,
+    'cancelable': true
+  });
+
+  element.dispatchEvent(event);
   }
  document.addEventListener('DOMContentLoaded', function () {
   const lis = document.getElementsByTagName("li");
@@ -58,11 +68,11 @@ Otherwise your changes will be overwritten the next time you save the extension 
   }
   function tooltipreplace(li){
   <f:for each="{tooltips}" as="tooltip">
-  li.innerHTML = li.innerHTML.replaceAll('{tooltip.tipid}', '<span class="wtooltip"  onclick="wtactivate(this)" data-tooltip="{tooltip.description}">{tooltip.tiptext}</span>');
+  <f:if condition="{tooltip.tiptext}"><f:then><f:variable name="tiptext">{tooltip.tiptext}</f:variable></f:then><f:else><f:variable name="tiptext">{tooltip.tipid}</f:variable></f:else></f:if>
+  li.innerHTML = li.innerHTML.replaceAll('{tooltip.tipid}', '<span class="wtooltip" onclick="wtactivate(this)" data-toggle="tooltip" data-placement="top" title="{tooltip.description}">{tiptext}</span>');
   </f:for>
+ 
 }
-
-
 });
 </script> 
 </f:section>
