@@ -70,11 +70,19 @@ Otherwise your changes will be overwritten the next time you save the extension 
   <f:for each="{tooltips}" as="tooltip">
   <f:if condition="{tooltip.tiptext}"><f:then><f:variable name="tiptext">{tooltip.tiptext}</f:variable></f:then><f:else><f:variable name="tiptext">{tooltip.tipid}</f:variable></f:else></f:if>
   el.innerHTML = el.innerHTML.replaceAll('{tooltip.tipid}', 'tooltipmarker_{tooltip.tipid}');
-  const inel = el.getElementsByTagName("a");
-  inel.outerHTML = inel.outerHTML.replaceAll('tooltipmarker_{tooltip.tipid}', '{tooltip.tipid}');
-  const inel = el.getElementsByTagName("span");
-  inel.outerHTML = inel.outerHTML.replaceAll('tooltipmarker_{tooltip.tipid}', '{tooltip.tipid}');
-  el.innerHTML = li.innerHTML.replaceAll('tooltipmarker_{tooltip.tipid}', '<span class="wtooltip" onclick="wtactivate(this)" data-toggle="tooltip" data-placement="top" title="{tooltip.description}">{tiptext}</span>');
+  var inel = el.getElementsByTagName("a");
+ 
+  for (let i = 0; i < inel.length; i++) {
+    inel[i].outerHTML = inel[i].outerHTML.replaceAll('tooltipmarker_{tooltip.tipid}', '{tooltip.tipid}');
+}
+  var inel = el.getElementsByTagName("span");
+  for (let i = 0; i < inel.length; i++) {
+    inel[i].outerHTML = inel[i].outerHTML.replaceAll('tooltipmarker_{tooltip.tipid}', '{tooltip.tipid}');
+}
+  
+  
+  el.innerHTML = el.innerHTML.replaceAll('tooltipmarker_{tooltip.tipid}', '<span class="wtooltip" onclick="wtactivate(this)" data-toggle="tooltip" data-placement="top" title="{tooltip.description}">{tiptext}</span>');
+
   </f:for>
  
 }
