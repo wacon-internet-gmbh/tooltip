@@ -2,7 +2,7 @@
 WACON Tooltip
 ==================================================
 
-
+The extension adds tooltips to keywords in the frontend. The tooltip texts are defined via data sets.
 
 Minimal Dependencies
 ====================

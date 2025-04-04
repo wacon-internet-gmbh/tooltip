@@ -7,13 +7,13 @@
 				<source>Tooltip</source>
 			</trans-unit>
 			<trans-unit id="tx_tooltip_domain_model_tooltip.tipid" resname="tx_tooltip_domain_model_tooltip.tipid">
-				<source>Id (Eingabe im Text, wird durch Tooltip ersetzt) </source>
+				<source>ID (keyword in text, replaced by tooltip) </source>
 			</trans-unit>
 			<trans-unit id="tx_tooltip_domain_model_tooltip.tiptext" resname="tx_tooltip_domain_model_tooltip.tiptext">
-				<source>Begriff (wird markiert im Text angezeigt) </source>
+				<source>Term (replaces the ID, is highlighted in the text) </source>
 			</trans-unit>
 			<trans-unit id="tx_tooltip_domain_model_tooltip.description" resname="tx_tooltip_domain_model_tooltip.description">
-				<source>Tooltip-Text: Kurze Erklärung zum Begriff</source>
+				<source>Tooltip text: Short explanation of the term</source>
 			</trans-unit>
 			<trans-unit id="tx_secrets_create.name" resname="tx_secrets_create.name">
 				<source>Create Secret </source>
