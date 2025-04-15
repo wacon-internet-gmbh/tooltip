@@ -1,0 +1,31 @@
+categories:
+  Tooltip:
+    label: 'Tooltip' # (1)
+  Tooltip.templates:
+    label: 'Templates' # (2)
+    parent: Tooltip
+  Tooltip.pages:
+    label: 'Pages'
+    parent: Tooltip
+
+settings:
+  plugin.tx_tooltip.view.templateRootPath:
+    label: 'Templates'
+    default: 'EXT:tooltip/Resources/Private/Templates/'
+    type: string
+    category: Tooltip.templates
+  plugin.tx_tooltip.view.partialRootPath:
+    label: 'Partials'
+    default: 'EXT:tooltip/Resources/Private/Partials/'
+    type: string
+    category: Tooltip.templates
+  plugin.tx_tooltip.view.layoutRootPath:
+    label: 'Layouts'
+    default: 'EXT:tooltip/Resources/Private/Layouts/'
+    type: string
+    category: Tooltip.templates
+  plugin.tx_tooltip.persistence.storagePid:
+    label: 'Storage PID'
+    default: '0'
+    type: string
+    category: Tooltip.pages

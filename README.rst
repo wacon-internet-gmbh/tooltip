@@ -26,10 +26,6 @@ Configuration
 2.1. Include the template "Tooltip" in your root template
 2.2. Use a separate storage folder and set the id inside TypoScript (plugin.tx_tooltip.settings), see TypoScript Browser
 
-License
--------
-
-This project is released under the terms of the `MIT license <https://en.wikipedia.org/wiki/MIT_License>`_.
 
 Find more information on our website
 -------
