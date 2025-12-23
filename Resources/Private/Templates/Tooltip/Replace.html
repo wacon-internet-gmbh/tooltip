@@ -19,33 +19,39 @@ Otherwise your changes will be overwritten the next time you save the extension 
       position: relative;
       text-decoration: underline dotted;
     }
-    span.wtooltip:after {
+     span.wtooltip.active{text-decoration:none; 
+    }
+    span.wtooltip.active:after {
       content: attr(title);
-      position: absolute;
+      display:inline-block;
+     
+      /*position: absolute;
       font-size:.9;
       line-height:1.3;
       bottom: 150%;
-      left: 20%;
-      background: #dddddd;
-      padding: 5px 20px;
-      color: black;
-      -webkit-border-radius: 10px;
-      -moz-border-radius : 10px;
-      border-radius : 10px;
-      opacity: 0;
-      height:0;
+      left: 20%;*/
+      margin: 0 5px;
+      text-decoration:none;
+      border:1px solid #666;padding:0 5px;
+   
+     
+      -webkit-border-radius: 0px;
+      -moz-border-radius : 0px;
+      border-radius : 0px;
+      /*opacity: 0;
+      height:0;*/
       -webkit-transition: all 0.4s ease;
       -moz-transition : all 0.4s ease;
       transition : all 0.4s ease;
     }
 
-    span.wtooltip.active:after {
+   /* span.wtooltip.active:after {
       bottom: 100%;
       opacity: 1;
       height:auto;
-    }
+    }*/
 </f:asset.css>
-<script>
+<f:asset.script identifier="wtooltip">
   function wtactivate(element){
     element.classList.toggle("active");
 
@@ -54,9 +60,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
     'bubbles': true,
     'cancelable': true
   });
-
   element.dispatchEvent(event);
   }
+
  document.addEventListener('DOMContentLoaded', function () {
   const lis = document.getElementsByTagName("li");
   const ps = document.getElementsByTagName("p");
@@ -66,19 +72,22 @@ Otherwise your changes will be overwritten the next time you save the extension 
   for (p of ps) {
     tooltipreplace(p);
   }
+  function ersetzeTextInElement(element, suchen, ersetzen) {
+    for (let node of element.childNodes) {
+        if (node.nodeType === Node.TEXT_NODE) {
+            // Nur im Text-Knoten ersetzen
+            node.textContent = node.textContent.replace(new RegExp(suchen, 'g'), ersetzen);
+        } else {
+            // Rekursiv in Kinder-Elemente eintauchen
+            ersetzeTextInElement(node, suchen, ersetzen);
+        }
+    }
+}
   function tooltipreplace(el){
-  <f:for each="{tooltips}" as="tooltip">
-  <f:if condition="{tooltip.tiptext}"><f:then><f:variable name="tiptext">{tooltip.tiptext}</f:variable></f:then><f:else><f:variable name="tiptext">{tooltip.tipid}</f:variable></f:else></f:if>
-  el.innerHTML = el.innerHTML.replaceAll('{tooltip.tipid}', 'tooltipmarker_{tooltip.tipid}');
-  var inel = el.getElementsByTagName("a");
- 
-  for (let i = 0; i < inel.length; i++) {
-    inel[i].outerHTML = inel[i].outerHTML.replaceAll('tooltipmarker_{tooltip.tipid}', '{tooltip.tipid}');
-}
-  var inel = el.getElementsByTagName("span");
-  for (let i = 0; i < inel.length; i++) {
-    inel[i].outerHTML = inel[i].outerHTML.replaceAll('tooltipmarker_{tooltip.tipid}', '{tooltip.tipid}');
-}
+   <f:for each="{tooltips}" as="tooltip">
+    <f:if condition="{tooltip.tiptext}"><f:then><f:variable name="tiptext">{tooltip.tiptext}</f:variable></f:then><f:else><f:variable name="tiptext">{tooltip.tipid}</f:variable></f:else></f:if>
+  
+  ersetzeTextInElement(el, "{tooltip.tipid}", "tooltipmarker_{tooltip.tipid}");
   
   
   el.innerHTML = el.innerHTML.replaceAll('tooltipmarker_{tooltip.tipid}', '<span class="wtooltip" onclick="wtactivate(this)" data-toggle="tooltip" data-placement="top" title="{tooltip.description}">{tiptext}</span>');
@@ -87,6 +96,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
  
 }
 });
-</script> 
+</f:asset.script> 
+
+
 </f:section>
 </html>

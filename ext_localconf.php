@@ -1,7 +1,9 @@
 <?php
 defined('TYPO3') || die();
 
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+use \TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
+   ExtensionUtility::configurePlugin(
         'tooltip',
         'Replace',
         [
@@ -10,7 +12,8 @@ defined('TYPO3') || die();
         // non-cacheable actions
         [
           
-        ]
+        ],
+         ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
     );
 
    

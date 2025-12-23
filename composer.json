@@ -1,7 +1,7 @@
 {
     "name": "wacon/tooltip",
     "type": "typo3-cms-extension",
-    "description": "",
+    "description": "Add Tooltip to keywords in content",
     "authors": [
         {
             "name": "Kerstin Schmitt",
@@ -10,7 +10,7 @@
     ],
     "license": "GPL-2.0-or-later",
     "require": {
-        "typo3/cms-core": "^12.4 || ^13.4"
+        "typo3/cms-core": "^13.4 || ^14.0"
     },
     "require-dev": {
         "typo3/testing-framework": "^6.9.0"

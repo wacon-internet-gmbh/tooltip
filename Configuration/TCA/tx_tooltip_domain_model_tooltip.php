@@ -11,10 +11,9 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => [
+        'security' => [
             'ignorePageTypeRestriction' => true
         ],
-        'security' => 'secret',
         'iconfile' => 'EXT:tooltip/Resources/Public/Icons/Extension.png'
     ],
     'types' => [
