@@ -11,9 +11,21 @@ use \TYPO3\CMS\Extbase\Utility\ExtensionUtility;
         ],
         // non-cacheable actions
         [
-          
+
         ],
          ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
     );
 
-   
+   ExtensionUtility::configurePlugin(
+        'tooltip',
+        'Glossar',
+        [
+            \WACON\Tooltip\Controller\TooltipController::class => 'list'
+        ],
+        // non-cacheable actions
+        [
+
+        ],
+         ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
+    );
+

@@ -50,4 +50,19 @@ class TooltipController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         return $this->htmlResponse();
     }
 
+    /**
+     * action list
+     *
+     * Lists all tooltip elements as a glossary.
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function listAction(): \Psr\Http\Message\ResponseInterface
+    {
+        $tooltips = $this->tooltipRepository->findAllOrderedByTipid();
+        $this->view->assign('tooltips', $tooltips);
+        $this->view->assign('settings', $this->settings);
+        return $this->htmlResponse();
+    }
+
 }

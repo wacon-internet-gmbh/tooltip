@@ -1,37 +1,47 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:tooltip/Resources/Private/Language/locallang_db.xlf" date="2024-01-24T08:58:44Z" product-name="tooltip">
+	<file source-language="en" target-language="de" datatype="plaintext" original="EXT:tooltip/Resources/Private/Language/locallang_db.xlf" date="2024-01-24T08:58:44Z" product-name="tooltip">
 		<header/>
 		<body>
 			<trans-unit id="tx_tooltip_domain_model_tooltip" resname="tx_tooltip_domain_model_tooltip">
 				<source>Tooltip</source>
+				<target>Tooltip</target>
 			</trans-unit>
 			<trans-unit id="tx_tooltip_domain_model_tooltip.tipid" resname="tx_tooltip_domain_model_tooltip.tipid">
 				<source>ID (keyword in text, replaced by tooltip) </source>
+				<target>ID (Schlüsselwort im Text, wird durch Tooltip ersetzt)</target>
 			</trans-unit>
 			<trans-unit id="tx_tooltip_domain_model_tooltip.tiptext" resname="tx_tooltip_domain_model_tooltip.tiptext">
 				<source>Term (replaces the ID, is highlighted in the text) </source>
+				<target>Begriff (ersetzt die ID, wird im Text hervorgehoben)</target>
 			</trans-unit>
 			<trans-unit id="tx_tooltip_domain_model_tooltip.description" resname="tx_tooltip_domain_model_tooltip.description">
 				<source>Tooltip text: Short explanation of the term</source>
+				<target>Tooltip-Text: Kurze Erklärung des Begriffs</target>
 			</trans-unit>
 			<trans-unit id="plugin.replace.title" resname="plugin.replace.title">
 				<source>Add Tooltips</source>
+				<target>Tooltips einfügen</target>
 			</trans-unit>
 			<trans-unit id="plugin.glossar.title" resname="plugin.glossar.title">
 				<source>Glossary</source>
+				<target>Glossar</target>
 			</trans-unit>
 			<trans-unit id="flexform.glossar.sheet_general" resname="flexform.glossar.sheet_general">
 				<source>General</source>
+				<target>Allgemein</target>
 			</trans-unit>
 			<trans-unit id="flexform.glossar.layout.label" resname="flexform.glossar.layout.label">
 				<source>Layout</source>
+				<target>Layout</target>
 			</trans-unit>
 			<trans-unit id="flexform.glossar.layout.list" resname="flexform.glossar.layout.list">
 				<source>List</source>
+				<target>Liste</target>
 			</trans-unit>
 			<trans-unit id="flexform.glossar.layout.table" resname="flexform.glossar.layout.table">
 				<source>Table</source>
+				<target>Tabelle</target>
 			</trans-unit>
 		</body>
 	</file>

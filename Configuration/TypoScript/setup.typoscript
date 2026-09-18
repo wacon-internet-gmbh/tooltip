@@ -22,6 +22,8 @@ plugin.tx_tooltip_replace {
     }
 }
 
+plugin.tx_tooltip_glossar < plugin.tx_tooltip_replace
+
 
 [{$plugin.tx_tooltip.persistence.storagePid} > 0]
 

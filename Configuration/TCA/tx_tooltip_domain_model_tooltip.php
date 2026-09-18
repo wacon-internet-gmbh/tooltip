@@ -25,7 +25,6 @@ return [
             'label' => 'LLL:EXT:tooltip/Resources/Private/Language/locallang_db.xlf:tx_tooltip_domain_model_tooltip.tipid',
             'config' => [
                 'type' => 'input',
-                'required' => true,
             ]
         ],
         'tiptext' => [
@@ -40,7 +39,6 @@ return [
             'label' => 'LLL:EXT:tooltip/Resources/Private/Language/locallang_db.xlf:tx_tooltip_domain_model_tooltip.description',
             'config' => [
                 'type' => 'input',
-                'required' => true,
             ]
         ],
     

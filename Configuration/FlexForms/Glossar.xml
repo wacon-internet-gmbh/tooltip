@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <sheetTitle>LLL:EXT:tooltip/Resources/Private/Language/locallang_db.xlf:flexform.glossar.sheet_general</sheetTitle>
+                <type>array</type>
+                <el>
+                    <settings.layout>
+                        <label>LLL:EXT:tooltip/Resources/Private/Language/locallang_db.xlf:flexform.glossar.layout.label</label>
+                        <config>
+                            <type>select</type>
+                            <renderType>selectSingle</renderType>
+                            <items type="array">
+                                <numIndex index="0">
+                                    <numIndex index="0">LLL:EXT:tooltip/Resources/Private/Language/locallang_db.xlf:flexform.glossar.layout.list</numIndex>
+                                    <numIndex index="1">list</numIndex>
+                                </numIndex>
+                                <numIndex index="1">
+                                    <numIndex index="0">LLL:EXT:tooltip/Resources/Private/Language/locallang_db.xlf:flexform.glossar.layout.table</numIndex>
+                                    <numIndex index="1">table</numIndex>
+                                </numIndex>
+                            </items>
+                        </config>
+                    </settings.layout>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

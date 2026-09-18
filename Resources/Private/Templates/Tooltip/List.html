@@ -1,0 +1,52 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="content">
+	<div class="tx-tooltip-glossar">
+		<f:if condition="{tooltips}">
+			<f:then>
+				<f:if condition="{settings.layout} == 'table'">
+					<f:then>
+						<table class="tx-tooltip-glossar-table">
+							<thead>
+								<tr>
+									<th><f:translate key="LLL:EXT:tooltip/Resources/Private/Language/locallang.xlf:tooltip.glossar.term" /></th>
+									<th><f:translate key="LLL:EXT:tooltip/Resources/Private/Language/locallang.xlf:tooltip.glossar.description" /></th>
+								</tr>
+							</thead>
+							<tbody>
+								<f:for each="{tooltips}" as="tooltip">
+									<tr>
+										<td class="tx-tooltip-glossar-term">
+											<f:if condition="{tooltip.tiptext}">
+												<f:then>{tooltip.tiptext}</f:then>
+												<f:else>{tooltip.tipid}</f:else>
+											</f:if>
+										</td>
+										<td class="tx-tooltip-glossar-description">{tooltip.description}</td>
+									</tr>
+								</f:for>
+							</tbody>
+						</table>
+					</f:then>
+					<f:else>
+						<dl class="tx-tooltip-glossar-list">
+							<f:for each="{tooltips}" as="tooltip">
+								<dt class="tx-tooltip-glossar-term">
+									<f:if condition="{tooltip.tiptext}">
+										<f:then>{tooltip.tiptext}</f:then>
+										<f:else>{tooltip.tipid}</f:else>
+									</f:if>
+								</dt>
+								<dd class="tx-tooltip-glossar-description">{tooltip.description}</dd>
+							</f:for>
+						</dl>
+					</f:else>
+				</f:if>
+			</f:then>
+			<f:else>
+				<p><f:translate key="LLL:EXT:tooltip/Resources/Private/Language/locallang.xlf:tooltip.glossar.empty" /></p>
+			</f:else>
+		</f:if>
+	</div>
+</f:section>
+</html>
